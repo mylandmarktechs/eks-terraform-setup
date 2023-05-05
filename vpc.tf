@@ -52,3 +52,10 @@ resource "aws_route_table_association" "demo" {
   subnet_id      = aws_subnet.demo.*.id[count.index]
   route_table_id = aws_route_table.demo.id
 }
+
+resource "aws_route_table_association" "demo1" {
+  count = 2
+
+  subnet_id      = aws_subnet.demo.*.id[count.index]
+  route_table_id = aws_route_table.demo.id
+}
